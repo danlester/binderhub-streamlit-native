@@ -14,6 +14,4 @@ EXPOSE 8888
 
 WORKDIR /app
 
-COPY intro.py /app/intro.py
-
 CMD ["jhsingle-native-proxy", "--destport", "8505", "streamlit", "hello", "{--}server.port", "{port}", "{--}server.headless", "True", "{--}server.enableCORS", "False"]
