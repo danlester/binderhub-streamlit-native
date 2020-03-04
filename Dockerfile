@@ -1,7 +1,7 @@
 FROM python:3.7
 RUN pip3 install \
     jupyterhub \
-    jhsingle-native-proxy>=0.0.7 \
+    jhsingle-native-proxy>=0.0.8 \
     streamlit
 
 # create a user, since we don't want to run as root
