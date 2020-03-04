@@ -7,6 +7,7 @@
 
 collect_port=0
 port="8888"
+delim='='
 
 for var in "$@"
 do
@@ -18,8 +19,15 @@ do
        collect_port=0
     fi
 
-    if [ "$var" == "--port" ]; then
-       collect_port=1
+    splitarg=${var%%$delim*}
+
+    if [ "$splitarg" == "--port" ]; then
+       if [ ${#splitarg} == ${#var} ]; then
+         collect_port=1
+       else
+         port=${var#*$delim}
+         echo "Setting external port $port"
+       fi
     fi
 done
 
